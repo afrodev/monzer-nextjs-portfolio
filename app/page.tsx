@@ -1,89 +1,105 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { getAllProjects } from "@/lib/projects";
 
-export default async function Home() {
-  const featuredProjects = await getAllProjects();
+export default function AboutPage() {
+  const skills = [
+    {
+      category: "Software Development",
+      items: ["TypeScript", "React", "Node.js", "Next.js", "Python", "SQL"],
+    },
+    {
+      category: "Electronics",
+      items: ["Arduino", "Raspberry Pi", "PCB Design", "IoT Development"],
+    },
+    {
+      category: "Creative",
+      items: ["Photography", "Video Production", "Adobe Creative Suite"],
+    },
+    {
+      category: "Business",
+      items: ["Digital Marketing", "Project Management", "Business Strategy"],
+    },
+  ];
+
+  const experience = [
+    {
+      title: "Software Engineer",
+      company: "Tech Innovations Inc.",
+      period: "2022 - Present",
+      description: "Leading development of web applications and IoT solutions.",
+    },
+    {
+      title: "Freelance Developer",
+      company: "Self-employed",
+      period: "2020 - 2022",
+      description: "Delivered custom software solutions for various clients.",
+    },
+  ];
 
   return (
-    <div className="flex flex-col min-h-screen">
-      {/* Hero Section */}
-      <section className="relative py-32 bg-background">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight sm:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-red-800">
-              Software Engineer & Creative
+    <div className="min-h-screen py-12 bg-background">
+      <div className="container mx-auto px-4 max-w-7xl">
+        {/* Hero Section */}
+        <div className="flex flex-col-reverse lg:flex-row items-center gap-12 mb-16">
+          <div className="flex-1 space-y-6">
+            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-red-800">
+              Who is Monzer?
             </h1>
-            <p className="mt-6 text-lg leading-8 text-muted-foreground">
-              Crafting digital experiences through code, electronics, and creative media.
-              Turning ideas into reality with a passion for innovation and attention to detail.
+            <p className="text-lg text-muted-foreground">
+              A passionate software engineer and creative professional with a unique blend of technical expertise and artistic vision. My journey spans across software development, electronics, and digital media, always driven by the desire to create meaningful and innovative solutions.
             </p>
-            <div className="mt-10 flex items-center justify-center gap-x-6">
-              <Button asChild>
-                <Link href="/projects">View Projects</Link>
-              </Button>
-              <Button variant="outline" asChild>
-                <Link href="/contact">Get in Touch</Link>
-              </Button>
+            <p className="text-lg text-muted-foreground">
+              With a bachelor's degree in Software Engineering and Business, I bring a holistic approach to every project, combining technical excellence with strategic thinking.
+            </p>
+          </div>
+          <div className="lg:flex-1">
+            <div className="relative aspect-square max-w-md mx-auto">
+              <img
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=1000"
+                alt="Portrait"
+                className="rounded-2xl object-cover shadow-xl"
+              />
             </div>
           </div>
         </div>
-      </section>
 
-      {/* Featured Projects Section */}
-      <section className="py-24 bg-white">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Featured Projects
-            </h2>
-            <p className="mt-2 text-lg leading-8 text-gray-600">
-              A curated selection of my most impactful work across different domains.
-            </p>
-          </div>
-          <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-            {featuredProjects.map((project) => (
-              <Card key={project.id} className="flex flex-col items-start">
-                <div className="relative w-full">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="aspect-[16/9] w-full rounded-t-lg bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
-                  />
-                  <div className="absolute inset-0 rounded-t-lg ring-1 ring-inset ring-gray-900/10" />
-                </div>
-                <div className="max-w-xl p-6">
-                  <div className="flex items-center gap-x-4 text-xs">
-                    <time dateTime={project.date} className="text-gray-500">
-                      {project.date}
-                    </time>
-                    <span className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600">
-                      {project.category}
-                    </span>
-                  </div>
-                  <div className="group relative">
-                    <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900">
-                      <Link href={`/projects/${project.id}`}>
-                        <span className="absolute inset-0" />
-                        {project.title}
-                      </Link>
-                    </h3>
-                    <p className="mt-5 text-sm leading-6 text-gray-600">
-                      {project.description}
-                    </p>
-                  </div>
-                </div>
+        {/* Skills Section */}
+        <section className="mb-16">
+          <h2 className="text-3xl font-bold mb-8">Skills & Expertise</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {skills.map((skillGroup) => (
+              <Card key={skillGroup.category} className="p-6">
+                <h3 className="font-semibold text-lg mb-4">{skillGroup.category}</h3>
+                <ul className="space-y-2">
+                  {skillGroup.items.map((skill) => (
+                    <li key={skill} className="text-muted-foreground">
+                      {skill}
+                    </li>
+                  ))}
+                </ul>
               </Card>
             ))}
           </div>
-          <div className="mt-16 text-center">
-            <Button asChild variant="outline">
-              <Link href="/projects">View All Projects</Link>
-            </Button>
+        </section>
+
+        {/* Experience Section */}
+        <section>
+          <h2 className="text-3xl font-bold mb-8">Professional Experience</h2>
+          <div className="space-y-6">
+            {experience.map((exp) => (
+              <Card key={exp.title} className="p-6">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                  <div>
+                    <h3 className="text-xl font-semibold">{exp.title}</h3>
+                    <p className="text-muted-foreground">{exp.company}</p>
+                  </div>
+                  <p className="text-muted-foreground">{exp.period}</p>
+                </div>
+                <p className="text-muted-foreground">{exp.description}</p>
+              </Card>
+            ))}
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   );
 }
