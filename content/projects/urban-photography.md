@@ -4,7 +4,7 @@ description: A photography series exploring the intersection of nature and urban
 date: '2023-10-20'
 category: photography
 image: https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&q=80&w=1000
-featured: true
+featured: false
 ---
 
 # Urban Landscapes Photography Series

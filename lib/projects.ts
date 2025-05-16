@@ -4,11 +4,16 @@ import matter from 'gray-matter';
 import MarkdownIt from 'markdown-it';
 import { Project } from './types';
 
+// Configure MarkdownIt with options to preserve spacing
 const md = new MarkdownIt({
   html: true,
   linkify: true,
   typographer: true,
+  breaks: true,  // Convert '\n' in paragraphs into <br>
 });
+
+// Add a custom rule to ensure proper paragraph spacing
+md.renderer.rules.paragraph_open = () => '<p class="mb-6">';
 
 const projectsDirectory = path.join(process.cwd(), 'content/projects');
 
@@ -35,8 +40,15 @@ export async function getProjectById(id: string): Promise<Project | null> {
     // Use gray-matter to parse the post metadata section
     const { data, content } = matter(fileContents);
 
-    // Convert markdown to HTML
-    const contentHtml = md.render(content);
+    // Ensure proper paragraph breaks by adding extra newlines
+    const enhancedContent = content
+      // Replace single newlines with double newlines to ensure paragraph breaks
+      .replace(/\n(?!\n)/g, '\n\n')
+      // Clean up any excessive newlines (more than 2)
+      .replace(/\n{3,}/g, '\n\n');
+
+    // Convert markdown to HTML with enhanced spacing
+    const contentHtml = md.render(enhancedContent);
 
     return {
       id,

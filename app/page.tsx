@@ -4,7 +4,18 @@ import { Card } from "@/components/ui/card";
 import { getAllProjects } from "@/lib/projects";
 
 export default async function Home() {
-  const featuredProjects = await getAllProjects();
+  const allProjects = await getAllProjects();
+  
+  // Filter out "Urban landscapes" and prioritize Bobabike
+  const featuredProjects = allProjects
+    .filter(project => project.id !== "urban-photography") // Remove Urban landscapes project
+    .sort((a, b) => {
+      // Put Bobabike first
+      if (a.id === "bobabike") return -1;
+      if (b.id === "bobabike") return 1;
+      // Otherwise maintain the original sort (by date)
+      return a.date < b.date ? 1 : -1;
+    });
 
   return (
     <div className="flex flex-col min-h-screen">

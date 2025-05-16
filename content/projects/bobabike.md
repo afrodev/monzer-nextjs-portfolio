@@ -12,6 +12,8 @@ featured: true
 ## **Project Overview**
 At just 19 years old, I launched Bobabike—a first-of-its-kind mobile bubble tea shop operated entirely from a custom-built electric cargo bike. This innovative business combined my passion for entrepreneurship, sustainability, and bringing new experiences to Oslo's food scene. All while beating out the competition in prices!
 
+some pics
+
 ## **The Concept & Execution**
 The idea was simple yet bold: import an electric cargo bike from China to Norway, transform it into a fully functional kitchen, and cycle it around Oslo serving fresh bubble tea. I had run the numbers and it seemed profitable on paper but I couldn't believe it. So I asked an accountant and he said mockingly "These numbers are a bit idealistic and if you actually manage to make it, let me know". What made this venture unique was the complete mobility and zero emissions approach—a truly sustainable food business.
 
