@@ -4,19 +4,19 @@ export default function AboutPage() {
   const skills = [
     {
       category: "Software Development",
-      items: ["TypeScript", "React", "Node.js", "Next.js", "Python", "SQL"],
+      items: ["Full-stack apps", "TypeScript", "React", "Node.js", "Next.js", "CI/CD", "Python", "SQL", "MongoDB"],
     },
     {
-      category: "Electronics",
-      items: ["Arduino", "Raspberry Pi", "PCB Design", "IoT Development"],
+      category: "Electronics & Embedded Systems",
+      items: ["Arduino", "ESP32 projects", "Raspberry Pi", "PCB Design", "IoT Development"],
     },
     {
       category: "Creative",
-      items: ["Photography", "Video Production", "Adobe Creative Suite"],
+      items: ["Photography", "Video Production", "Digital Marketing","Adobe Creative Suite", "Drone Photography", "Social Media Management", "TikTok Content"],
     },
     {
       category: "Business",
-      items: ["Digital Marketing", "Project Management", "Business Strategy"],
+      items: ["Digital Marketing", "Project Management", "Business Strategy", "Sales"],
     },
   ];
 
@@ -45,16 +45,20 @@ export default function AboutPage() {
               Who is Monzer?
             </h1>
             <p className="text-lg text-muted-foreground">
-              A passionate software engineer and creative professional with a unique blend of technical expertise and artistic vision. My journey spans across software development, electronics, and digital media, always driven by the desire to create meaningful and innovative solutions.
+            👋 Hey, I’m Monzer Faisal! 
             </p>
             <p className="text-lg text-muted-foreground">
-              With a bachelor's degree in Software Engineering and Business, I bring a holistic approach to every project, combining technical excellence with strategic thinking.
+            I have a background in software engineering and business, which allows me to bridge the gap between technology and real-world impact. 
+            My journey started with a deep curiosity for how things work—whether it was breaking down code, tinkering with hardware, or figuring out how to scale a business.
+            </p>
+            <p className="text-lg text-muted-foreground">
+              insert more text
             </p>
           </div>
           <div className="lg:flex-1">
             <div className="relative aspect-square max-w-md mx-auto">
               <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=1000"
+                src="/images/Monzer-Yellow-Field-Simple-sq.jpg"
                 alt="Portrait"
                 className="rounded-2xl object-cover shadow-xl"
               />
@@ -64,7 +68,7 @@ export default function AboutPage() {
 
         {/* Skills Section */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8">Skills & Expertise</h2>
+          <h2 className="text-3xl font-bold mb-8">💡 What I do best</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {skills.map((skillGroup) => (
               <Card key={skillGroup.category} className="p-6">
