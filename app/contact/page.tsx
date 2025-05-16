@@ -59,7 +59,7 @@ export default function ContactPage() {
             I typically respond within 24-48 hours.
           </p>
           <Button asChild size="lg">
-            <Link href="mailto:contact@example.com">
+            <Link href="mailto:monzergmc1@gmail.com">
               Send Email
             </Link>
           </Button>
